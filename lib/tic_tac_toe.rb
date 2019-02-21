@@ -23,7 +23,7 @@ class TicTacToe
   
   
   def input_to_index(user_input)
-    @index = (user_input.to_i - 1)
+    index = (user_input.to_i - 1)
   end
   
   def move(index, character = "X")
@@ -88,13 +88,13 @@ end
 
 def won?
 for sub_array in WIN_COMBINATIONS do
-winning_index_1 = sub_array[0]
-winning_index_2 = sub_array[1]
-winning_index_3 = sub_array[2]
+index_1 = sub_array[0]
+index_2 = sub_array[1]
+index_3 = sub_array[2]
 
-board_index_1 = @board[winning_index_1]
-board_index_2 = @board[winning_index_2]
-board_index_3 = @board[winning_index_3]
+board_index_1 = @board[index_1]
+board_index_2 = @board[index_2]
+board_index_3 = @board[index_3]
 
  if (board_index_1 == "X" && board_index_2 == "X" && board_index_3 == "X") || (board_index_1 == "O" && board_index_2 == "O" && board_index_3 == "O") 
   return sub_array
