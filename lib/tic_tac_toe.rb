@@ -109,6 +109,15 @@ def full?
   end 
 end
 
-
+def draw?
+  if won?
+    return false
+  elsif !full?
+    false 
+  else
+    puts "Cat's Game!"
+    true
+end 
+end 
 
 end
