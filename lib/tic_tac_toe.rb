@@ -1,8 +1,10 @@
 class TicTacToe
+# Creating a new board whenever game is initialized.
   def initialize
     @board = Array.new(9, " ")
   end
   
+  # Defines what combinations are winning combinations
   WIN_COMBINATIONS = 
   [[0,1,2],
   [3,4,5],
@@ -13,6 +15,7 @@ class TicTacToe
   [0,4,8],
   [2,4,6]]
   
+  # Prints out your current board
   def display_board
   puts " #{@board[0]} | #{@board[1]} | #{@board[2]} "
   puts "-----------"
@@ -21,11 +24,12 @@ class TicTacToe
   puts " #{@board[6]} | #{@board[7]} | #{@board[8]} "
   end 
   
-  
+  # Changes user input to indexed array number
   def input_to_index(user_input)
     index = (user_input.to_i - 1)
   end
   
+  # Allows user's number choice to mark the board
   def move(index, character = "X")
   if character == "X"
     @board[index] = "X"
@@ -34,6 +38,7 @@ class TicTacToe
 end
 end
 
+# Validation: Cannot overwrite someone else's move
 def position_taken?(index)
   if @board[index] == "X"
     true
@@ -44,6 +49,7 @@ def position_taken?(index)
   end
 end
 
+# Validation: Chose between 1-9 & position is not taken?
 def valid_move?(index)
   if (index.between?(0,8) == true) && (position_taken?(index) == false)
     return true 
@@ -52,6 +58,7 @@ def valid_move?(index)
   end
 end
 
+#Bundles current_player, input_to_index, valid_move?, move, and display_board to take a turn
 def turn
   character = current_player
 puts "Please enter 1-9:"
@@ -66,6 +73,7 @@ index = input_to_index(user_input)
   end
 end
 
+# Creates a loop of play until it is won or a draw
 def play
 turn until over?
 if won?
@@ -75,6 +83,7 @@ elsif draw? == true
 end
 end
 
+# Counts number of turns
 def turn_count
   x_turns = @board.count("X")
   o_turns = @board.count("O")
@@ -82,7 +91,7 @@ def turn_count
   return turn_count
 end
   
-
+# Uses turn_count to determine if X or O is next 
 def current_player
   turn_count 
   if turn_count%2 != 0 
@@ -92,7 +101,7 @@ def current_player
   end
 end
 
-
+# Checks to see if the board matches any of the winning combinations 
 def won?
 for sub_array in WIN_COMBINATIONS do
 index_1 = sub_array[0]
@@ -110,6 +119,7 @@ end
 false
 end
 
+# Checks to see if there are any blank spaces left 
 def full?
   if @board.include?(" " || "" || nil)
     false
@@ -118,6 +128,7 @@ def full?
   end 
 end
 
+# Checks to see if it is won or full to determine a draw
 def draw?
   if won?
     return false
@@ -129,6 +140,7 @@ def draw?
 end 
 end 
 
+# Checks to see if the game is over 
 def over?
  if draw? 
    return true
@@ -139,6 +151,7 @@ else
 end
 end
 
+# If someone won, prints the winner (X or O)
 def winner
 sub_array = won?
   if won? == false
