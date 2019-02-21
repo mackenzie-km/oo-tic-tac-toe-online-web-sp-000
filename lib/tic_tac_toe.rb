@@ -66,11 +66,11 @@ index = input_to_index(user_input)
   end
 end
 
-def play(board)
-turn(board) until over?(board)
-if won?(board) 
-  puts "Congratulations #{winner(board)}!"
-elsif draw?(board) == true
+def play
+turn until over?
+if won?
+  puts "Congratulations #{winner}!"
+elsif draw? == true
   puts "Game over! Thanks for playing."
 end
 end
