@@ -84,8 +84,6 @@ def current_player
 end
 
 
-end
-
 def won?
 for sub_array in WIN_COMBINATIONS do
 index_1 = sub_array[0]
@@ -101,4 +99,6 @@ board_index_3 = @board[index_3]
 end
 end
 false
+end
+
 end
