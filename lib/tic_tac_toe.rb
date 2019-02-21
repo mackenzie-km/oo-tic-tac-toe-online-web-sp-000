@@ -101,8 +101,8 @@ end
 false
 end
 
-def full?(board)
-  if board.include?(" " || "" || nil)
+def full?
+  if @board.include?(" " || "" || nil)
     false
   else
     true 
