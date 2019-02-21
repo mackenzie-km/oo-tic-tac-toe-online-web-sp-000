@@ -101,7 +101,13 @@ end
 false
 end
 
-
+def full?(board)
+  if board.include?(" " || "" || nil)
+    false
+  else
+    true 
+  end 
+end
 
 
 
