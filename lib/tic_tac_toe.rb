@@ -130,5 +130,15 @@ else
 end
 end
 
+def winner
+sub_array = won?
+  if won? == false
+    return nil
+  elsif @board[sub_array[1]] == "X"
+   return "X"
+  elsif @board[sub_array[1]] == "O"
+   return "O"
+end
+end
 
 end
