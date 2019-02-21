@@ -120,4 +120,15 @@ def draw?
 end 
 end 
 
+def over?
+ if draw? 
+   return true
+elsif won?
+  return true 
+else
+  false 
+end
+end
+
+
 end
